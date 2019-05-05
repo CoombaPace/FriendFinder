@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Meet Your Match</title>
+    <title>FoodieFriendFinder</title>
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -159,7 +159,7 @@
         <br>
         <footer class="footer text-center">
             <div class="container">
-                <p><a href="">About </a> | <a href="">GitHub</a>
+                <p><a href="https://github.com/CoombaPace/FriendFinder">GitHub</a>
                     <br> &copy; 2019 </p>
             </div>
         </footer>
@@ -171,7 +171,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h2 class="modal-title"><strong>Best Match</strong></h2>
+                    <h2 class="modal-title"><strong>Your New Best Foodie Friend</strong></h2>
                 </div>
                 <div class="modal-body">
                     <h2 id="matchName"></h2>
@@ -184,7 +184,8 @@
         </div>
     </div>
     <script type="text/javascript">
-        // Chosen CSS
+
+        // Chosen CSS to manipulate the appearence of dropdown menu.
         var config = {
             '.chosen-select': {},
             '.chosen-select-deselect': {
@@ -237,7 +238,7 @@
                     $("#resultsModal").modal('toggle');
                 });
             } else {
-                alert("Please fill out all fields before submitting!");
+                alert("Answer all questions before submitting!");
             }
             return false;
         });

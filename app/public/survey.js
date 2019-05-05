@@ -1,16 +1,16 @@
 $(document).ready(function(){
     $('.modal-trigger').leanModal();
     
-    // When we click the submit button...
+    // Click submit...
     $("#submit").click(function(){
     
-        // Checking to see if user input a name & image.
+        // ...and check whether user left name & image blank...
         if ( $('#nameInput').val() == null || $('#imageInput').val() == null ) {
             alert("Please fill out all questions!");
             return false;
         };
     
-        // Checking to see if user answered all of the survey questions.
+        // ...Check whether user answered all survey questions.
         for (var i = 1; i <= 10; i++) {
             if ( $("input:radio[name=question"+i+"]:checked").val() == null ) {
                 alert("Please fill out all questions!");
@@ -18,31 +18,30 @@ $(document).ready(function(){
             };
         };
     
-        // Creating an array to hold the answers.
+        // Array to hold user answers.
         var scoreArray = [];
     
-        // Looping through the answers and pushing them to the array. 
+        // Looping through answers, push them to the array. 
         for (var i = 1; i <= 10; i++) {
             scoreArray.push( $("input:radio[name=question"+i+"]:checked").val() );
         }
     
-        // Creating an object that stores all of the input given by the user.
+        // Object to store user input.
         var person = {
             name: $('#nameInput').val(),
             image: $('#imageInput').val(),
             scores: scoreArray
         };
     
-        // Storing our current URL in a variable.
+        // Var to hold current URL
         var currentURL = window.location.origin;
     
-        // Making an AJAX post request. The server calculates the match and sends back the info in the data object.
+        // AJAX post request to server retrieves match info.
         $.post(currentURL + '/api/survey', person).done(function(data){
     
-            // Opens our modal.
+            // Modal pops up displaying match!
             $('#modal1').openModal();
     
-            // Populate out modal with information about the match.
             $('#modalArea').empty()
             var picture = '<img class="circle" src="'+data.image+'"">';
             $('#modalArea').append("<h5>" + data.name + " !</h5>")
